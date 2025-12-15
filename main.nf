@@ -9,7 +9,7 @@ params.mask = "${projectDir}/Reference/Farhat_RLC_Regions.bed"
 params.mask_index = "${projectDir}/Reference/Farhat_RLC_Regions.bed.idx"
 
 log.info """
-Pipeline_12 - Analysis pipeline for detecting unfixed variants in Mycobacterium tuberculosis
+WTH Pipeline - Because Why the Hell not?
 RC3ID
 Universitas Padjadjaran
 ================================
