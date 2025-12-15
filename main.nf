@@ -21,7 +21,7 @@ outdir     : $params.outdir
 
 include { Trimming } from './modules/Trimming.nf'
 include { Mapping } from './modules/Mapping.nf'
-include { Dedup } from './modules/Dedup.nf'
+include { Preprocessing } from './modules/Preprocessing.nf'
 include { Calling } from './modules/Calling.nf'
 include { Filtering } from './modules/Filtering.nf'
 include { Annotation } from './modules/Annotation.nf'
@@ -42,8 +42,8 @@ workflow {
 
     Trimming(sampleName_ch, rawRead1_ch, rawRead2_ch)
     Mapping(sampleName_ch, Trimming.out.fastp_R1, Trimming.out.fastp_R2, ref_file, ref_index_file, ref_dict_file)
-    Dedup(sampleName_ch, Mapping.out.bwa_aligned, ref_file, ref_index_file, ref_dict_file)
-    Calling(sampleName_ch, Dedup.out.bam_processed, ref_file, ref_index_file, ref_dict_file)
+    Preprocessing(sampleName_ch, Mapping.out.bwa_aligned, ref_file, ref_index_file, ref_dict_file)
+    Calling(sampleName_ch, Preprocessing.out.bam_processed, ref_file, ref_index_file, ref_dict_file)
     Filtering(sampleName_ch, Calling.out.called_low_vcf, Calling.out.called_unfixed_vcf, Calling.out.called_fixed_vcf, ref_file, ref_index_file, ref_dict_file, mask_file, mask_index_file)
     Annotation(sampleName_ch, Filtering.out.low_vcf, Filtering.out.unfixed_vcf, Filtering.out.fixed_vcf)
     FastaConversion(sampleName_ch, Filtering.out.fixed_vcf, Filtering.out.fixed_idx, ref_file, ref_index_file, ref_dict_file)

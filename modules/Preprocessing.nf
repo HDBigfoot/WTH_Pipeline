@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-process Dedup {
+process Preprocessing {
 
     conda 'gatk4'
 
