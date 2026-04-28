@@ -50,6 +50,6 @@ workflow {
     SNPStatistics(sampleName_ch, Filtering.out.low_vcf, Filtering.out.unfixed_vcf, Filtering.out.fixed_vcf)
     Annotation(sampleName_ch, Filtering.out.low_vcf, Filtering.out.unfixed_vcf, Filtering.out.fixed_vcf)
     GenerateReport(sampleName_ch, Annotation.out.ann_low_vcf, Annotation.out.ann_unfixed_vcf, Annotation.out.ann_fixed_vcf)
-    ReportCleanup(sampleName_ch, GenerateReport.out.low_report, GenerateReport.out.unfixed_report, GenerateReport.out.fixed_report)
+    ReportCleanup(sampleName_ch, GenerateReport.out.low_report, GenerateReport.out.unfixed_report, GenerateReport.out.fixed_report, SNPStatistics.out.low_snpstats, SNPStatistics.out.unfixed_snpstats, SNPStatistics.out.fixed_snpstats)
 
 }
