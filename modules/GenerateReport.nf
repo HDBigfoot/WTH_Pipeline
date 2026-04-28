@@ -15,9 +15,9 @@ process GenerateReport {
         path ann_fixed_vcf
 
     output:
-        path(*.low_variants_report.txt), emit: low_report
-        path(*.unfixed_variants_report.txt), emit: unfixed_report
-        path(*.fixed_variants_report.txt), emit: fixed_report
+        path "*.low_variants_report.txt", emit: low_report
+        path "*.unfixed_variants_report.txt", emit: unfixed_report
+        path "*.fixed_variants_report.txt", emit: fixed_report
 
     script:
     """

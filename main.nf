@@ -47,7 +47,7 @@ workflow {
     Calling(sampleName_ch, Preprocessing.out.bam_processed, ref_file, ref_index_file, ref_dict_file)
     Filtering(sampleName_ch, Calling.out.called_low_vcf, Calling.out.called_unfixed_vcf, Calling.out.called_fixed_vcf, ref_file, ref_index_file, ref_dict_file, mask_file, mask_index_file)
     SNPStatistics(sampleName_ch, Filtering.out.low_vcf, Filtering.out.unfixed_vcf, Filtering.out.fixed_vcf)
-    Annotation(sampleName_ch, Filtering.out.low_vcf, Filtering.out.unfixed_vcf, Filterin.out.fixed_vcf)
+    Annotation(sampleName_ch, Filtering.out.low_vcf, Filtering.out.unfixed_vcf, Filtering.out.fixed_vcf)
     GenerateReport(sampleName_ch, Annotation.out.ann_low_vcf, Annotation.out.ann_unfixed_vcf, Annotation.out.ann_fixed_vcf)
 
 }
