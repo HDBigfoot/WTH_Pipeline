@@ -6,8 +6,8 @@ args <- commandArgs(trailingOnly = TRUE)
 snp_stats_file <- args[1]
 vcf_table_file <- args[2]
 
-snp_stats <- read.table(snp_stats_file, sep = '\t', header = TRUE, check.names = FALSE)
-vcf_table <- read.table(vcf_table_file, sep = '\t', header = TRUE, check.names = FALSE)
+snp_stats <- read.table(snp_stats_file, sep = '\t', header = TRUE, check.names = FALSE, quote = "")
+vcf_table <- read.table(vcf_table_file, sep = '\t', header = TRUE, check.names = FALSE, quote = "")
 
 snp_type <- c(rep("FIXED", length.out = nrow(vcf_table)))
 vcf_table <- cbind(snp_type, vcf_table)
