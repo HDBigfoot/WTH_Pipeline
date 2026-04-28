@@ -4,8 +4,8 @@ process Preprocessing {
 
     conda 'gatk4'
 
-    publishDir params.outdir + "/Dedup", mode: 'copy', saveAs: { filename -> if (filename.endsWith("_dedup.bam")) {"${sampleName}_rg.bam"}
-                                                               else if (filename.endsWith("_dedup.bai")) {"${sampleName}_rg.bai"}}
+    publishDir params.outdir + "/Preprocessed", mode: 'copy', saveAs: { filename -> if (filename.endsWith("_rg.bam")) {"${sampleName}_rg.bam"}
+                                                                      else if (filename.endsWith("_rg.bai")) {"${sampleName}_rg.bai"}}
 
     input:
         val sampleName
