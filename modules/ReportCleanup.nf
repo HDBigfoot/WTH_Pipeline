@@ -2,9 +2,7 @@
 
 process ReportCleanup {
 
-    conda 'tbvcfreport'
-
-    publishDir params.outdir + "/tbvcfreport", mode: 'copy', saveAs: {filename -> if (filename.endsWith(".complete_report.tsv")) {"${sampleName}.complete_report.tsv"}}
+    publishDir params.outdir + "/Complete_Report", mode: 'copy', saveAs: {filename -> if (filename.endsWith(".complete_report.tsv")) {"${sampleName}.complete_report.tsv"}}
 
     input:
         val sampleName
