@@ -14,4 +14,4 @@ vcf_table <- cbind(snp_type, vcf_table)
 
 merged_table <- left_join(vcf_table, snp_stats, by = c("POS"))
 
-write.table(merged_table, row.names = FALSE, sep = "\t", quote = FALSE)
+write.table(merged_table, row.names = FALSE, col.names = FALSE, sep = "\t", quote = FALSE)
